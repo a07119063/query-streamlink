@@ -86,7 +86,7 @@ def query_handler(args, api):
 
 @app.route("/", methods=['GET'])
 def index():
-    return "This program permits you to get direct access to streams by using Streamlink. Enjoy ! LaneSh4d0w. Special thanks to Keystroke for the API usage."
+    return "403 AUTH"
 
 
 @app.route("/iptv-query", methods=['GET'])
@@ -111,7 +111,7 @@ def api():
 
 @app.errorhandler(429)
 def ratelimit_handler(e):
-    return "Whoa there ! I know you like that service, but there's no need to spam me ! Let the server breathe a little bit (RATE LIMIT EXCEEDED)"
+    return "403 AUTH"
 
 
 if __name__ == '__main__':
