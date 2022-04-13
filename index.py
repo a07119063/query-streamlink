@@ -93,13 +93,16 @@ def index():
 @limiter.limit("20/minute")
 @limiter.limit("1/second")
 def home():
+    title = (
+            f"https://watch.sky4k.top/e_new_player/index.php?url="
+        )
     response = query_handler(request.args, False)
     if response.startswith("#EXTM3U"):
         return send_file("stream.m3u8")
     elif response.startswith("http"):
         return redirect(response)
     else:
-        return response
+        return title + response
 
 
 @app.route("/api", methods=['GET'])
